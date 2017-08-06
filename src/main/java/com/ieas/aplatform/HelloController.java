@@ -14,4 +14,13 @@ public class HelloController {
 		return "Testing";
 	}
 	
+	@RequestMapping("/main")
+	public String Main(){
+		return "main";
+	}	
+	
+	@RequestMapping("/list")
+	public String List(){
+		return "list";
+	}
 }

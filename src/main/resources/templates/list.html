@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>列表测试</title>
+	<meta charset="utf-8" />
+	<link href="css/style.css" type="text/css" />
+	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+        $(function () {
+
+            $("#btnAdd").click(function () {
+                var iTop = (window.screen.availHeight - 30 - 200) / 2;
+                var iLeft = (window.screen.availWidth - 10 - 400) / 2;
+                window.open("http://www.baidu.com", "", "height=200, width=400, top="+iTop+", left="+iLeft+", toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <div style="background:#00ffff">系统管理</div>
+    <div class="ctQuery">
+        <form id="frmQuery">
+            <table>
+                <tr>
+                    <th>系统名称</th>
+                    <td>
+                        <input type="text" />
+                    </td>
+                    <td>
+                        <button id="btnQuery">查询</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div id="toolbar" style="text-align:right">
+            <button id="btnAdd">添加</button>
+            <button>删除</button>
+            <button>导出</button>
+        </div>
+        <table width="100%">
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>邮箱</th>
+                <th>电话</th>
+                <th>备注</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>a@12.com</td>
+                <td>199</td>
+                <td>测试用</td>
+                <td>好东东</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
