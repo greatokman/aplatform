@@ -2,20 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>列表测试</title>
-	<meta charset="utf-8" />
+	<meta charset="utf-8" />	
+	
 	<link href="css/style.css" type="text/css" />
-	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="plugin/jQueryUI/jquery-ui.js" type="text/javascript"></script>
+	<script src="plugin/jqGrid/js/i18n/grid.locale-en.js" type="text/javascript"></script>
+	<script src="plugin/jqGrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
 	<script type="text/javascript">
         $(function () {
 
             $("#btnAdd").click(function () {
                 var iTop = (window.screen.availHeight - 30 - 200) / 2;
                 var iLeft = (window.screen.availWidth - 10 - 400) / 2;
-                window.open("http://www.baidu.com", "", "height=200, width=400, top="+iTop+", left="+iLeft+", toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+                window.open("edit", "", "height=200, width=600, top="+iTop+", left="+iLeft+", toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
             });
 
         });
     </script>
+    <link rel="stylesheet" type="text/css" media="screen" href="plugin/jQueryUI/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="plugin/jqGrid/css/ui.jqgrid.css" />
 </head>
 <body>
     <div style="background:#00ffff">系统管理</div>
@@ -38,88 +44,42 @@
             <button>删除</button>
             <button>导出</button>
         </div>
-        <table width="100%">
-            <tr>
-                <th>序号</th>
-                <th>姓名</th>
-                <th>邮箱</th>
-                <th>电话</th>
-                <th>备注</th>
-                <th>操作</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>ABC</td>
-                <td>a@12.com</td>
-                <td>199</td>
-                <td>测试用</td>
-                <td>好东东</td>
-            </tr>
-        </table>
+      	<div>
+      	    <table id="jqGrid"></table>
+    		<div id="jqGridPager"></div>    		
+      	</div>
+      <script type="text/javascript" th:inline="JavaScript">
+      	function reloadGrid(){
+      		$("#jqGrid").jqGrid({
+                url: 'http://trirand.com/blog/phpjqgrid/examples/jsonp/getjsonp.php?callback=?&amp;qwery=orders',
+                mtype: "GET",
+                datatype: "jsonp",
+                colModel: [
+                    { label: 'OrderID', name: 'OrderID', key: true, width: 75 },
+                    { label: 'Customer ID', name: 'CustomerID', width: 150 },
+                    { label: 'Order Date', name: 'OrderDate', width: 150 },
+                    { label: 'Freight', name: 'Freight', width: 150 },
+                    { label:'Ship Name', name: 'ShipName', width: 150 }
+                ],
+				page: 1,
+               rowNum: 20,
+				scrollPopUp:true,
+				scrollLeftOffset: "83%",
+				viewrecords: true,
+				autowidth:true,
+				height:400,
+				forceFit:true,
+				multiselect:true,
+                emptyrecords: '当前数据为空',
+                pager: "#jqGridPager"
+            });   
+      	}
+      
+   		$(function(){      			
+   			reloadGrid();
+   			$("#btnQuery").click(reloadGrid);
+   		});
+      	</script>
     </div>
 </body>
 </html>

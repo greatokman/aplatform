@@ -23,4 +23,15 @@ public class HelloController {
 	public String List(){
 		return "list";
 	}
+	
+	@RequestMapping("/edit")
+	public String Edit(){
+		return "edit";
+	}
+	
+	@RequestMapping("/jsonList")
+	@ResponseBody
+	public String json(){
+		return "";
+	}
 }
